@@ -1,7 +1,7 @@
 {
   "packages": {
     "gldriver-test": {
-      "ref": "6ec2865509644ae7d65e14f3550ea699abe07e65",
+      "ref": "338cad1c8c5ca66d370d5db7b810e70570f7a02f",
       "source": "https://github.com/joemoongit/gldriver-test.git"
     },
     "regolith-system-ubuntu-raspberrypi": {
