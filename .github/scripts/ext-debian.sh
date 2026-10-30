@@ -301,8 +301,8 @@ archive_setup_scripts() {
     rm /tmp/Release
 
     local repo_line=""
-    if [ "$LOCAL_BUILD" == "false" ] && [ "$SUITE" == "stable" ]; then
-      # fixed version component
+    if [ "$LOCAL_BUILD" == "false" ] && [ "$SUITE" == "stable" ] && [[ "$COMPONENT" =~ ^[0-9] ]]; then
+      # fixed version component (e.g. 3.4 -> v3.4); named components like raspberrypi are used as-is
       repo_line="http://archive.regolith-desktop.com/$DISTRO/$SUITE $CODENAME v$COMPONENT"
     else
       # main component

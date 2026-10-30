@@ -34,6 +34,7 @@ on:
           - release-3_2
           - release-3_3
           - release-3_4
+          - raspberrypi
         required: true
         default: "unstable"
       distro:
@@ -187,6 +188,11 @@ jobs:
             EXCLUDES+=($(jq -n -c --arg distro "debian" --arg codename "testing" '$ARGS.named'))
           fi
 
+          # raspberrypi stage only has arm64 package models
+          if [[ " ${STAGES[*]} " =~ [[:space:]]raspberrypi[[:space:]] ]]; then
+            EXCLUDES+=($(jq -n -c --arg stage "raspberrypi" --arg arch "amd64" '$ARGS.named'))
+          fi
+
           SUITES=$(jq -n "$(jq -n -c \
             --argjson experimental "$(jq -n -c --arg suite "experimental" --arg component "main" '$ARGS.named')" \
             --argjson unstable "$(jq -n -c --arg suite "unstable" --arg component "main" '$ARGS.named')" \
@@ -198,6 +204,7 @@ jobs:
             --argjson release-3_2 "$(jq -n -c --arg suite "stable" --arg component "3.2" '$ARGS.named')" \
             --argjson release-3_3 "$(jq -n -c --arg suite "stable" --arg component "3.3" '$ARGS.named')" \
             --argjson release-3_4 "$(jq -n -c --arg suite "stable" --arg component "3.4" '$ARGS.named')" \
+            --argjson raspberrypi "$(jq -n -c --arg suite "stable" --arg component "raspberrypi" '$ARGS.named')" \
             '$ARGS.named'\
           )" '$ARGS.named')
 
