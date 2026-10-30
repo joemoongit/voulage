@@ -4,9 +4,9 @@
       "ref": "6ec2865509644ae7d65e14f3550ea699abe07e65",
       "source": "https://github.com/joemoongit/gldriver-test.git"
     },
-    "regolith-device-raspberrypi": {
-      "ref": "8458d805b01abfdc05c702c67d540242c366e542",
-      "source": "https://github.com/joemoongit/regolith-device-raspberrypi.git"
+    "regolith-system-ubuntu-raspberrypi": {
+      "ref": "725034262177563513b22b8060b166f655303bcf",
+      "source": "https://github.com/joemoongit/regolith-system-ubuntu-raspberrypi.git"
     }
   }
 }
